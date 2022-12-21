@@ -20,7 +20,7 @@ namespace Trode.Pages
     /// </summary>
     public partial class Capcha : Page
     {
-        private int _RoleId { get; set; }
+        private int _RoleId { get; set; }   
         public Capcha(int UserRole)
         {
             InitializeComponent();
@@ -28,9 +28,6 @@ namespace Trode.Pages
             RandCapcha();
         }
 
-        /// <summary>
-        /// Генерация капчи
-        /// </summary>
         private void RandCapcha()
         {
             Random rand = new Random();
