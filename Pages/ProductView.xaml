@@ -1,0 +1,60 @@
+﻿<Page x:Class="Trode.Pages.ProductView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Trode.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ProductView">
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="410*"/>
+        </Grid.RowDefinitions>
+
+        <Grid HorizontalAlignment="Center" Width="440">
+            <TextBlock Text="Введите категорию товара: " Style="{StaticResource TxtStyle}" VerticalAlignment="Center"/>
+            <TextBox x:Name="SortTxt" Width="200" Height="30" HorizontalAlignment="Right" TextChanged="TextBox_TextChanged"/>            
+        </Grid>
+        
+        <Button x:Name="AdminPanel" Click="AdminPanel_Click" Content="Редактировать" HorizontalAlignment="Right" Margin="5" VerticalAlignment="Center" Background="{StaticResource SecondColor}" Visibility="Hidden"/>
+
+        <ListView Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" x:Name="lVProduct" Grid.RowSpan="2">
+            
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="3"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="205"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Source="{Binding ProductPhoto, TargetNullValue={StaticResource NoImage}}" Grid.Column="0"/>
+
+                        <StackPanel Grid.Column="1" Margin="20 0 0 0">
+                            <TextBlock Text="{Binding ProductName}" Style="{StaticResource TxtStyle}"/>
+                            <TextBlock Text="{Binding ProductDescription}" Grid.Column="1" TextWrapping="Wrap" Margin="5 0 0 0" VerticalAlignment="Center" FontSize="14" Style="{StaticResource TxtStyle}"/>
+                            <TextBlock Text="{Binding ProductCategory}" Style="{StaticResource TxtStyle}"/>
+                            <TextBlock Text="{Binding ProductCost, StringFormat={}{0:N2} Руб}" VerticalAlignment="Bottom" Style="{StaticResource TxtStyle}"/>
+                        </StackPanel>
+
+                        <StackPanel VerticalAlignment="Center" Grid.Column="2" Margin="15 0 0 0" HorizontalAlignment="Right">
+                            <TextBlock Text="Наличие на складе: " Style="{StaticResource TxtStyle}" TextWrapping="Wrap"/>
+                            <TextBlock Text="{Binding ProductQuantityInStock}" Style="{StaticResource TxtStyle}" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </StackPanel>
+                        
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>
