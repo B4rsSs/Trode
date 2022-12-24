@@ -16,9 +16,8 @@
 
         <Grid HorizontalAlignment="Center" Width="440">
             <TextBlock Text="Введите категорию товара: " Style="{StaticResource TxtStyle}" VerticalAlignment="Center"/>
-            <TextBox x:Name="SortTxt" Width="200" Height="30" HorizontalAlignment="Right" TextChanged="TextBox_TextChanged"/>            
+            <TextBox x:Name="SortTxt" Width="200" Height="30" HorizontalAlignment="Right" TextChanged="TextBox_TextChanged"/>
         </Grid>
-        
         <Button x:Name="AdminPanel" Click="AdminPanel_Click" Content="Редактировать" HorizontalAlignment="Right" Margin="5" VerticalAlignment="Center" Background="{StaticResource SecondColor}" Visibility="Hidden"/>
 
         <ListView Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" x:Name="lVProduct" Grid.RowSpan="2">

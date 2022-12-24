@@ -25,14 +25,14 @@ namespace Trode.Pages
             if (_UserRoleId == 1)
                 AdminPanel.Visibility = Visibility.Visible;
 
-            lVProduct.ItemsSource = TrodeEntities.GetContext().Product.ToList();
+            lVProduct.ItemsSource = TrodeEntities.GetContext().Product.ToList();          
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             var currentProduct = TrodeEntities.GetContext().Product.ToList();
 
-            lVProduct.ItemsSource = currentProduct.Where(p => p.ProductCategory.ToLower().Contains(SortTxt.Text.ToLower())).ToList();
+            lVProduct.ItemsSource = currentProduct.Where(p => p.ProductCategory.ToLower().Contains(SortTxt.Text.ToLower()) || p.ProductName.ToLower().Contains(SortTxt.Text.ToLower())).ToList();
         }
 
         private void AdminPanel_Click(object sender, RoutedEventArgs e)

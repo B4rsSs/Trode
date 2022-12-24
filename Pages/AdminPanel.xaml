@@ -11,7 +11,7 @@
     <Grid>
         <StackPanel Width="300" Height="220">
             <Button Content="Редактировать товары" Margin="15" Padding="3" Background="{StaticResource SecondColor}"/>
-            <Button Content="Добавить пользователя" Margin="15" Padding="3" Background="{StaticResource SecondColor}"/>
+            <Button x:Name="AddUsreBtn" Click="AddUsreBtn_Click" Content="Добавить пользователя" Margin="15" Padding="3" Background="{StaticResource SecondColor}"/>
             <Button Content="Редактировать пользователя" Margin="15" Padding="3" Background="{StaticResource SecondColor}"/>
             <Button x:Name="BackLVProduct" Click="BackLVProduct_Click" Content="Назад" Margin="15" Padding="3" Background="{StaticResource SecondColor}"/>
         </StackPanel>

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Trode.Windows;
 
 namespace Trode.Pages
 {
@@ -29,6 +30,12 @@ namespace Trode.Pages
         {
             if(NavigationService.CanGoBack)
                 NavigationService.GoBack();
+        }
+
+        private void AddUsreBtn_Click(object sender, RoutedEventArgs e)
+        {
+            AddUsers addUsers = new AddUsers();
+            addUsers.ShowDialog();            
         }
     }
 }
